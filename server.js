@@ -1,11 +1,12 @@
 const express = require('express');
-const port = process.env.PORT || 8080;
+
 const app = express();
 
-app.use(express.static(__dirname + '/dist/'));
-app.get(/.*/, function (req, res) {
-  res.sendFile(__dirname + '/dist/index.html');
-})
-app.listen(port);
 
-console.log("server started");
+app.get("/", (req, res) => {
+    res.send("<h1>Home Page</h1>")
+});
+
+app.listen(5000, () => {
+    console.log("Server started on Port 5000");
+})
